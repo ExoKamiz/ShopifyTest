@@ -129,10 +129,10 @@
         "#imageDimensions {font-size: 16px; color: #333; margin-top: 10px;}",
         "#clearButton {display: none; margin-top: 10px; padding: 10px; background-color: #f44336; color: white; cursor: pointer;}",
         "#clearButton:hover {background-color: #da190b;}",
-        ".main {padding:0 100px}"
+        ".main {padding: 0 100px;}"
       ],
       "settings": {
-        "custom_liquid": "<div class=\"main>\n<label for=\"imageUpload\" id=\"uploadLabel\">Upload an image<\/label>\n    <input type=\"file\" id=\"imageUpload\" accept=\"image\/*\">\n    <button id=\"clearButton\">Clear<\/button>\n    <p id=\"imageDimensions\"><\/p>\n    <img id=\"previewImage\">\n<\/div>",
+        "custom_liquid": "<div class=\"main\">\n<label for=\"imageUpload\" id=\"uploadLabel\">Upload an image<\/label>\n    <input type=\"file\" id=\"imageUpload\" accept=\"image\/*\">\n    <button id=\"clearButton\">Clear<\/button>\n    <p id=\"imageDimensions\"><\/p>\n    <img id=\"previewImage\">\n<\/div>",
         "color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 52

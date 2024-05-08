@@ -1,9 +1,21 @@
 document.getElementById('imageUpload').addEventListener('change', function(e) {
-    var file = e.target.files[0];
-    var img = new Image();
-    img.onload = function() {
-        document.getElementById('imageDimensions').textContent = 'Width: ' + this.width/150 + 'inch, Height: ' + this.height/150 + 'inch';
-        document.getElementById('previewImage').src = this.src;
-    }
-    img.src = URL.createObjectURL(file);
-});
+            var file = e.target.files[0];
+            var img = new Image();
+            img.onload = function() {
+                document.getElementById('imageDimensions').textContent = 'Width: ' + this.width + ', Height: ' + this.height;
+                document.getElementById('previewImage').src = this.src;
+                document.getElementById('imageUpload').style.display = 'none';
+                document.getElementById('uploadLabel').style.display = 'none';
+                document.getElementById('clearButton').style.display = 'block';
+            }
+            img.src = URL.createObjectURL(file);
+        });
+
+        document.getElementById('clearButton').addEventListener('click', function() {
+            document.getElementById('imageUpload').value = '';
+            document.getElementById('imageUpload').style.display = 'block';
+            document.getElementById('uploadLabel').style.display = 'block';
+            document.getElementById('clearButton').style.display = 'none';
+            document.getElementById('previewImage').src = '';
+            document.getElementById('imageDimensions').textContent = '';
+        });

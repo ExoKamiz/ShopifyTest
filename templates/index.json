@@ -122,16 +122,16 @@
     "custom_liquid_aiHnLK": {
       "type": "custom-liquid",
       "custom_css": [
-        "#imageUpload {display: none; }",
-        " #uploadLabel {padding: 10px; background-color: #4CAF50; color: white; cursor: pointer; }",
-        " #uploadLabel:hover {background-color: #45a049; }",
-        " #previewImage {max-width: 20%; height: 20%; border: 2px solid #ddd; border-radius: 4px; padding: 5px; margin-top: 10px; }",
-        " #imageDimensions {font-size: 16px; color: #333; margin-top: 10px; }",
-        " #clearButton {display: none; margin-top: 10px; padding: 10px; background-color: #f44336; color: white; cursor: pointer; }",
-        " #clearButton:hover {background-color: #da190b; }"
+        "#imageUpload {display: none;}",
+        "#uploadLabel {padding: 10px; background-color: #4caf50; color: white; cursor: pointer;}",
+        "#uploadLabel:hover {background-color: #45a049;}",
+        "#previewImage {max-width: 20%; height: 20%; border: 2px solid #ddd; border-radius: 4px; padding: 5px; margin-top: 10px;}",
+        "#imageDimensions {font-size: 16px; color: #333; margin-top: 10px;}",
+        "#clearButton {display: none; margin-top: 10px; padding: 10px; background-color: #f44336; color: white; cursor: pointer;}",
+        "#clearButton:hover {background-color: #da190b;}"
       ],
       "settings": {
-        "custom_liquid": "<label for=\"imageUpload\" id=\"uploadLabel\">Upload an image<\/label>\n    <input type=\"file\" id=\"imageUpload\" accept=\"image\/*\">\n    <button id=\"clearButton\">Clear<\/button>\n    <p id=\"imageDimensions\"><\/p>\n    <img id=\"previewImage\">",
+        "custom_liquid": "<div class=\"main>\n<label for=\"imageUpload\" id=\"uploadLabel\">Upload an image<\/label>\n    <input type=\"file\" id=\"imageUpload\" accept=\"image\/*\">\n    <button id=\"clearButton\">Clear<\/button>\n    <p id=\"imageDimensions\"><\/p>\n    <img id=\"previewImage\">\n<\/div>",
         "color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 52

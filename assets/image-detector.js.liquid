@@ -2,7 +2,7 @@ document.getElementById('imageUpload').addEventListener('change', function(e) {
             var file = e.target.files[0];
             var img = new Image();
             img.onload = function() {
-                document.getElementById('imageDimensions').textContent = 'Width: ' + this.width + ', Height: ' + this.height;
+                document.getElementById('imageDimensions').textContent = 'Width: ' + this.width/150 + ', Height: ' + this.height/150;
                 document.getElementById('previewImage').src = this.src;
                 document.getElementById('imageUpload').style.display = 'none';
                 document.getElementById('uploadLabel').style.display = 'none';

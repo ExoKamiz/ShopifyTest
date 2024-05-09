@@ -47,7 +47,8 @@
         ".container {display: flex; flex-direction: row; width: 100%; height: 300px; padding: 0 10px; column-gap: 20px;}",
         ".service:hover {transform: scale(1.05);}",
         "h2 {color: #222; font-size: 24px; margin-bottom: 10px;}",
-        "p {color: #444; font-size: 16px;}"
+        "p {color: #444; font-size: 16px;}",
+        "@media (max-width: 767px) {}"
       ],
       "settings": {
         "custom_liquid": "<div class=\"container\">\n    <div class=\"service\">\n        <h2>Order an Empty Custom Frame<\/h2>\n        <p>Tailor your framing experience to perfection. Choose from a variety of styles, sizes, and materials to complement your artwork or photograph.<\/p>\n    <\/div>\n    \n    <div class=\"service\">\n        <h2>Loading Your Own Product for Manufacturing<\/h2>\n        <p>Have a specific design in mind? Bring it to life by entrusting us with your custom product manufacturing. From concept to creation, we ensure precision and quality every step of the way.<\/p>\n    <\/div>\n    \n    <div class=\"service\">\n        <h2>Order a Ready-Made Product<\/h2>\n        <p>Short on time? Discover our selection of ready-made frames and prints, curated to suit various tastes and preferences. Simply pick your favorite and let us handle the rest.<\/p>\n    <\/div>\n<\/div>",

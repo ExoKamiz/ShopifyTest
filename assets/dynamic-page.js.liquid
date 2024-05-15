@@ -1,0 +1,167 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var steps = document.querySelectorAll('.step');
+    var imageUpload = document.getElementById('imageUpload');
+    var productImage = document.getElementById('productImage');
+    var summary = document.getElementById('summary');
+    var isOptionChoosen = false;
+
+     function checkAndBlockFramingOption() {
+        var step1Option2 = document.querySelector('.step:nth-child(1) .option:nth-child(2)');
+        var step1Option3 = document.querySelector('.step:nth-child(1) .option:nth-child(3)');
+        var step2Option1 = document.querySelector('.step:nth-child(2) .option:nth-child(1)');
+        
+        if (step1Option2.classList.contains('selected') || step1Option3.classList.contains('selected')) {
+            step2Option1.classList.add('disabled');
+            step2Option1.classList.remove('selected');
+            step2Option1.style.backgroundColor = 'lightgray';
+            step2Option1.style.cursor = 'not-allowed';
+        } else {
+            step2Option1.classList.remove('disabled');
+            step2Option1.style.backgroundColor = '';
+            step2Option1.style.cursor = '';
+        }
+
+        if (isOptionChoosen) {
+            checkSuboptions();
+        }
+  
+        updateSummary();
+    }
+
+    steps.forEach(function(step) {
+        var title = step.querySelector('.stepTitle');
+        var content = step.querySelector('.stepContent');
+        var options = step.querySelectorAll('.option');
+        var suboptionComponent = document.getElementById('suboptions');
+        // var suboptions = step.querySelectorAll('.suboption');
+            
+        title.addEventListener('click', function() {
+            var isOpen = content.style.display === 'block';
+        
+            content.style.display = isOpen ? 'none' : 'block';
+            title.textContent = title.textContent.replace(isOpen ? '-' : '+', isOpen ? '+' : '-');
+        
+            if (isOpen) {
+                options.forEach(function(option) {
+                    option.classList.remove('selected');
+                    option.disabled = false;
+                });
+        
+                var suboptions = document.querySelectorAll('.suboption.selected');
+                suboptions.forEach(function(suboption) {
+                    suboption.classList.remove('selected');
+                });
+        
+                checkAndBlockFramingOption();
+            }
+        });
+    
+        options.forEach(function(option) {
+            option.addEventListener('click', function() {
+                if (!option.classList.contains('selected')) {
+                    options.forEach(function(otherOption) {
+                        otherOption.classList.remove('selected');
+                    });
+                    option.classList.add('selected');
+                }
+
+                isOptionChoosen = true;
+
+                suboptionComponent.style.display = 'flex';
+        
+                checkAndBlockFramingOption();
+                updateSummary();
+            });
+        });
+    });
+
+    imageUpload.addEventListener('change', function() {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            productImage.src = e.target.result;
+        };
+
+        reader.readAsDataURL(imageUpload.files[0]);
+    });
+
+    // Добавляем переменные для хранения выбранных опций и подопций
+    var selectedOptionStep1, selectedSuboptionStep1, selectedOptionStep2;
+
+    function updateSummary() {
+        summary.innerHTML = '';
+        var selectedOptions = document.querySelectorAll('.option.selected');
+        var selectedSuboptions = document.querySelectorAll('.suboption.selected');
+    
+        selectedOptions.forEach(function(option, index) {
+            var stepNumber = option.closest('.step').dataset.stepNumber;
+            var li = document.createElement('li');
+            if (stepNumber == "1") {
+                selectedOptionStep1 = option.textContent;
+                selectedSuboptionStep1 = selectedSuboptions[0] ? selectedSuboptions[0].textContent : '';
+                li.innerHTML = 'Material: ' + selectedOptionStep1 + '<br>Printing type: ' + selectedSuboptionStep1;
+            } else if (stepNumber == "2") {
+                selectedOptionStep2 = option.textContent;
+                li.innerHTML = '<hr>Floating: ' + selectedOptionStep2;
+            } else {
+                li.textContent = 'Step ' + stepNumber + ': ' + option.textContent;
+            }
+            summary.appendChild(li);
+        });
+    }
+
+    function addSuboptions(array) {
+        var suboptions = document.getElementById('suboptions');
+    
+        // Save the selected suboption
+        var selectedSuboption = suboptions.querySelector('.suboption.selected');
+    
+        suboptions.innerHTML = '';
+    
+        array.forEach(function(item) {
+            var div = document.createElement('div');
+            div.className = 'suboption';
+            div.textContent = item;
+            div.addEventListener('click', function() {
+                if (!div.classList.contains('selected')) {
+                    suboptions.querySelectorAll('.suboption').forEach(function(otherSuboption) {
+                        otherSuboption.classList.remove('selected');
+                    });
+                    div.classList.add('selected');
+                }
+    
+                updateSummary();
+            });
+    
+            // If this suboption was previously selected, select it again
+            if (selectedSuboption && selectedSuboption.textContent === item) {
+                div.classList.add('selected');
+            }
+    
+            suboptions.appendChild(div);
+        });
+    
+        suboptions.style.display = 'flex';
+    }
+
+    function checkSuboptions() {
+        var step1Option1 = document.querySelector('.step:nth-child(1) .option:nth-child(1)');
+        var step1Option2 = document.querySelector('.step:nth-child(1) .option:nth-child(2)');
+        var step1Option3 = document.querySelector('.step:nth-child(1) .option:nth-child(3)');
+        var step1Option4 = document.querySelector('.step:nth-child(1) .option:nth-child(4)');
+
+        if (step1Option1 && step1Option1.classList.contains('selected')) {
+            addSuboptions(['Rolled', 'Stretched', 'Matte', 'Satin']);
+        } else if (step1Option2 && step1Option2.classList.contains('selected')) {
+            addSuboptions(['Water colortex', 'Smooth']);
+        } else if (step1Option3 && step1Option3.classList.contains('selected')) {
+            addSuboptions(['Listre', 'Gloss', 'Metalliz gloss']);
+        } else if (step1Option4 && step1Option4.classList.contains('selected')){
+            addSuboptions(['AAA', 'BBB', 'CCC']);
+        } else {
+            document.getElementById('suboptions').style.display = 'none';
+        }
+    }
+    
+    checkAndBlockFramingOption();
+});

@@ -27,7 +27,6 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Frame-Wall.jpg",
         "image_overlay_opacity": 40,
         "image_height": "medium",
         "desktop_content_position": "bottom-center",
@@ -138,12 +137,22 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "custom_liquid_6JzQTc": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Custom Product<\/title>\n    <link rel=\"stylesheet\" type=\"text\/css\" href=\"dynamic-page.css\">\n<\/head>\n<body>\n    <div id=\"left\">\n        <img id=\"productImage\" src=\"\" alt=\"Your Product\">\n        <ul id=\"summary\"><\/ul>\n    <\/div>\n    <div id=\"right\">\n        <div class=\"step\" data-step-number=\"1\">\n            <h2 class=\"stepTitle\">Step 1: Printing<\/h2>\n            <div class=\"stepContent\">\n                <input type=\"file\" id=\"imageUpload\">\n                <div class=\"options\">\n                    <div class=\"option\">Canvas<\/div>\n                    <div class=\"option\">Mattte paper<\/div>\n                    <div class=\"option\">Photograde paper<\/div>\n                    <div class=\"option\">Mounted print<\/div>\n                <\/div>\n                <div class=\"options\" id=\"suboptions\" style=\"display: none;\"><\/div>\n            <\/div>\n        <\/div>\n        <div class=\"step\" data-step-number=\"2\">\n            <h2 class=\"stepTitle\">Step 2: Framing<\/h2>\n            <div class=\"stepContent\">\n                <div class=\"options\">\n                    <div class=\"option\">Float frame<\/div>\n                    <div class=\"option\">Classic frame<\/div>\n                <\/div>\n            <\/div>\n        <\/div>\n        <div class=\"step\" data-step-number=\"3\">\n            <h2 class=\"stepTitle\">Step 3: Customization<\/h2>\n            <div class=\"stepContent\">\n                <div class=\"options\">\n                    <div class=\"option\">Option X<\/div>\n                    <div class=\"option\">Option Y<\/div>\n                    <div class=\"option\">Option Z<\/div>\n                <\/div>\n            <\/div>\n        <\/div>\n    <\/div>\n    <script src=\"dynamic-page.js\"><\/script>\n<\/body>\n<\/html>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "image_banner",
     "custom_liquid_eKgzKq",
     "multicolumn_UypAbC",
-    "custom_liquid_aiHnLK"
+    "custom_liquid_aiHnLK",
+    "custom_liquid_6JzQTc"
   ]
 }

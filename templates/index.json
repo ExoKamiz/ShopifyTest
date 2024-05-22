@@ -47,7 +47,7 @@
         ".service:hover {transform: scale(1.05);}",
         "h2 {color: #222; font-size: 24px; margin-bottom: 10px;}",
         "p {color: #444; font-size: 16px;}",
-        "@media (max-width: 767px) {}"
+        "@media (max-width: 380px) {}"
       ],
       "settings": {
         "custom_liquid": "<div class=\"container\">\n    <div class=\"service\">\n        <h2>Order an Empty Custom Frame<\/h2>\n        <p>Tailor your framing experience to perfection. Choose from a variety of styles, sizes, and materials to complement your artwork or photograph.<\/p>\n    <\/div>\n    \n    <div class=\"service\">\n        <h2>Loading Your Own Product for Manufacturing<\/h2>\n        <p>Have a specific design in mind? Bring it to life by entrusting us with your custom product manufacturing. From concept to creation, we ensure precision and quality every step of the way.<\/p>\n    <\/div>\n    \n    <div class=\"service\">\n        <h2>Order a Ready-Made Product<\/h2>\n        <p>Short on time? Discover our selection of ready-made frames and prints, curated to suit various tastes and preferences. Simply pick your favorite and let us handle the rest.<\/p>\n    <\/div>\n<\/div>",
@@ -140,6 +140,9 @@
     },
     "custom_liquid_6JzQTc": {
       "type": "custom-liquid",
+      "custom_css": [
+        "@media (max-width: 380px) {body {display: flex; flex-direction: column; }}"
+      ],
       "settings": {
         "custom_liquid": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Custom Product<\/title>\n    <link rel=\"stylesheet\" type=\"text\/css\" href=\"dynamic-page.css\">\n<\/head>\n<body>\n    <div id=\"left\">\n        <img id=\"productImage\" src=\"\" alt=\"Your Product\">\n        <ul id=\"summary\"><\/ul>\n    <\/div>\n    <div id=\"right\">\n        <div class=\"step\" data-step-number=\"1\">\n            <h2 class=\"stepTitle\">Step 1: Printing<\/h2>\n            <div class=\"stepContent\">\n                <input type=\"file\" id=\"imageUpload\">\n                <div class=\"options\">\n                    <div class=\"option\">Canvas<\/div>\n                    <div class=\"option\">Mattte paper<\/div>\n                    <div class=\"option\">Photograde paper<\/div>\n                    <div class=\"option\">Mounted print<\/div>\n                <\/div>\n                <div class=\"options\" id=\"suboptions\" style=\"display: none;\"><\/div>\n            <\/div>\n        <\/div>\n        <div class=\"step\" data-step-number=\"2\">\n            <h2 class=\"stepTitle\">Step 2: Framing<\/h2>\n            <div class=\"stepContent\">\n                <div class=\"options\">\n                    <div class=\"option\">Float frame<\/div>\n                    <div class=\"option\">Classic frame<\/div>\n                <\/div>\n            <\/div>\n        <\/div>\n        <div class=\"step\" data-step-number=\"3\">\n            <h2 class=\"stepTitle\">Step 3: Customization<\/h2>\n            <div class=\"stepContent\">\n                <div class=\"options\">\n                    <div class=\"option\">Option X<\/div>\n                    <div class=\"option\">Option Y<\/div>\n                    <div class=\"option\">Option Z<\/div>\n                <\/div>\n            <\/div>\n        <\/div>\n    <\/div>\n    <script src=\"dynamic-page.js\"><\/script>\n<\/body>\n<\/html>",
         "color_scheme": "",
